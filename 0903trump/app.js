@@ -66,7 +66,9 @@ async function highBtn() {
 
     // 手札残り
     const handCard = document.getElementById('handCard');
-    
+
+    //スコア計算
+    const scoremath = document.getElementById('scoremath');
     
     if (card < hideCard) {
         cnt--;
@@ -77,10 +79,14 @@ async function highBtn() {
                 resetBtn();
             }
         }
+        score++;
+        scoremath.textContent = score + "連勝中";
         drawCard();
     } else {
-        
-        alert("×");
+        var result = confirm("あなたのスコアは" + score + "でした。リトライしますか？");
+            if (result) {
+                resetBtn();
+        }
     }
 }
 
@@ -99,9 +105,14 @@ async function lowBtn() {
                 resetBtn();
             }
         }
+        score++;
+        scoremath.textContent = score + "連勝中";
         drawCard();
     } else {
-        alert("×");
+        var result = confirm("あなたのスコアは" + score + "でした。リトライしますか？");
+            if (result) {
+                resetBtn();
+        }
     }
 }
 
