@@ -3,28 +3,41 @@
     <head> 
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
-        <title>Pokemon Card Game</title>
+        <title>HIGH and LOW</title>
     </head>
     <body>
-        <div class="flex">
+        <b class="title">HIGH & LOW</b>
+        <div class="cardFlex">
+            <div class="deckBox">
+                <b class="font">山札</b>
+                <img src="img/deck.png" class="deck">
+                <br><b class="font">？枚</b>
+            </div>
             <div>
-                <img id="cardImage" src="img/back.png" alt="カードの画像">
+                <img id="cardImage" src="img/back.png" class="card">
                 <p id="cardValue"></p>
             </div>
             <div>
-                <img id="hideCardImage" src="img/back.png" alt="カードの画像">
+                <img id="hideCardImage" src="img/back.png" class="card">
                 <p id="hideCardValue"></p>
             </div>
+            <div class="deckBox">
+                <b class="font">持ち札</b>
+                <img src="img/deck.png" class="deck">
+                <br><b class="font">10枚</b>
+            </div>
+            
         </div>
 
-    
         
 
+        <div class="btnFlex">
+            <button onclick="drawCard()">カードを引く</button>
+            <button onclick="highBtn()">High</button>
+            <button onclick="lowBtn()">Low</button>
+            <button onclick="resetBtn()">リセット</button>
+        </div>
         
-        <button onclick="drawCard()">カードを引く</button>
-        <button onclick="highBtn()">High</button>
-        <button onclick="lowBtn()">Low</button>
-        <button onclick="resetBtn()">リセット</button>
 
         <script src="app.js"></script>
     </body>
