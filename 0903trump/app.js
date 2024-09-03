@@ -1,4 +1,5 @@
-
+let cnt = 0;
+let score = 0;
 
 async function drawCard() {
     // ドロー
@@ -64,8 +65,15 @@ async function highBtn() {
     let hideCard = parseInt(document.getElementById("hideCardValue").textContent);
     
     if (card < hideCard) {
+        cnt++;
+        if(cnt == 10){
+            var result = confirm("おめでとうございます。リトライしますか？");
+            if (result) {
+                resetBtn();
+            }
+        }
         drawCard();
-        alert("○");
+        alert(cnt);
     } else {
         
         alert("×");
@@ -79,8 +87,15 @@ async function lowBtn() {
     let hideCard = parseInt(document.getElementById("hideCardValue").textContent);
 
     if (card > hideCard) {
-        alert("○");
+        cnt++;
+        if(cnt == 10){
+            var result = confirm("おめでとうございます。リトライしますか？");
+            if (result) {
+                resetBtn();
+            }
+        }
         drawCard();
+        alert(cnt);
     } else {
         alert("×");
     }
