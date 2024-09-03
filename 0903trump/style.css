@@ -10,5 +10,13 @@
 }
 
 #cardImage {
-  width: 50vw;
+  width: 25vw;
+}
+
+#hideCardImage {
+  width: 25vw;
+}
+
+.flex {
+  display: flex;
 }

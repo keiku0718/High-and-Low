@@ -3,13 +3,29 @@
     <head> 
         <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
-        <title>pokemon</title>
+        <title>Pokemon Card Game</title>
     </head>
     <body>
+        <div class="flex">
+            <div>
+                <img id="cardImage" src="img/back.png" alt="カードの画像">
+                <p id="cardValue"></p>
+            </div>
+            <div>
+                <img id="hideCardImage" src="img/back.png" alt="カードの画像">
+                <p id="hideCardValue"></p>
+            </div>
+        </div>
+
+    
+        
+
+        
         <button onclick="drawCard()">カードを引く</button>
-        <img id="cardImage" src="img/back.png" alt="カードの画像">
-        <p id="cardValue">カードの値:</p>
+        <button onclick="highBtn()">High</button>
+        <button onclick="lowBtn()">Low</button>
+        <button onclick="resetBtn()">リセット</button>
+
         <script src="app.js"></script>
-      </body>
-</div>
+    </body>
 </html>
