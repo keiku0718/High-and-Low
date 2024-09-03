@@ -1,4 +1,4 @@
-let cnt = 0;
+let cnt = 10;
 let score = 0;
 
 async function drawCard() {
@@ -63,17 +63,21 @@ async function highBtn() {
     // pタグの数値を取得
     let card = parseInt(document.getElementById("cardValue").textContent);
     let hideCard = parseInt(document.getElementById("hideCardValue").textContent);
+
+    // 手札残り
+    const handCard = document.getElementById('handCard');
+    
     
     if (card < hideCard) {
-        cnt++;
-        if(cnt == 10){
+        cnt--;
+        handCard.textContent = cnt + "枚";
+        if(cnt == 0){
             var result = confirm("おめでとうございます。リトライしますか？");
             if (result) {
                 resetBtn();
             }
         }
         drawCard();
-        alert(cnt);
     } else {
         
         alert("×");
@@ -87,15 +91,15 @@ async function lowBtn() {
     let hideCard = parseInt(document.getElementById("hideCardValue").textContent);
 
     if (card > hideCard) {
-        cnt++;
-        if(cnt == 10){
+        cnt--;
+        handCard.textContent = cnt + "枚";
+        if(cnt == 0){
             var result = confirm("おめでとうございます。リトライしますか？");
             if (result) {
                 resetBtn();
             }
         }
         drawCard();
-        alert(cnt);
     } else {
         alert("×");
     }
