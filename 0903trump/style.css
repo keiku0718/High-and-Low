@@ -1,10 +1,27 @@
 /* 全体背景色 */
 html {
-  background-color: #38b6b6ff;
+  background-color: rgb(125, 213, 213);
 }
+
 
 body {
   margin: 0;
+}
+
+/* headerFlex */
+.header {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* スコア */
+#scoremath {
+  position: absolute;
+  right: 0;
+  font-size: 4vw;
+  margin-right: 5vw;
+  margin-top: 2vw;
 }
 
 /* タイトル */
@@ -12,6 +29,7 @@ body {
   font-size: 6.5vw;
   display: block;
   text-align: center;
+  margin: 0;
 }
 
 /* カードflex */

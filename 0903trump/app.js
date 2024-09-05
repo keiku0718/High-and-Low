@@ -70,7 +70,11 @@ async function highBtn() {
     //スコア計算
     const scoremath = document.getElementById('scoremath');
     
-    if (card < hideCard) {
+    if (card == hideCard) {
+        alert("ドロー");
+        drawCard();
+        
+    } else if(card < hideCard) {
         cnt--;
         handCard.textContent = cnt + "枚";
         if(cnt == 0){
@@ -96,7 +100,11 @@ async function lowBtn() {
     let card = parseInt(document.getElementById("cardValue").textContent);
     let hideCard = parseInt(document.getElementById("hideCardValue").textContent);
 
-    if (card > hideCard) {
+    if (card == hideCard) {
+        alert("ドロー");
+        drawCard();
+        
+    } else if(card > hideCard) {
         cnt--;
         handCard.textContent = cnt + "枚";
         if(cnt == 0){
