@@ -1,48 +1,22 @@
 <!doctype html>
 <html>
-    <head> 
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="style.css">
-        <title>HIGH and LOW</title>
-    </head>
-    <body>
-        <div class="header">
-            <b class="title">HIGH & LOW</b>
-            <b id="scoremath" class="font"></b>
-        </div>
-        <div class="cardFlex">
-            <div class="deckBox">
-                <b class="font">山札</b>
-                <img src="img/deck.png" class="deck">
-                <br><b id="deck" class="font">？枚</b>
-            </div>
-            <div>
-                <img id="cardImage" src="img/back.png" class="card">
-                <p id="cardValue"></p>
-            </div>
-            <div>
-                <img id="hideCardImage" src="img/back.png" class="card">
-                <p id="hideCardValue"></p>
-            </div>
-            <div class="deckBox">
-                <b class="font">持ち札</b>
-                <img src="img/deck.png" class="deck">
-                <br><b id="handCard" class="font">10枚</b>
-            </div>
-        </div>
-        <div class="btnFlex">
-            <button onclick="drawCard()">カードを引く</button>
-            <button onclick="highBtn()">High</button>
-            <button onclick="lowBtn()">Low</button>
-            <button onclick="resetBtn()">リセット</button>
-        </div>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>HIGH and LOW</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <button id="get">Get Random Cards</button> <!-- 「カード」に変更 -->
+      <div id="card"></div>
+    </div>
 
-        <div class="popup">
-            <div class="popupMsg">
-                <h1>ポップアップ</h1>            
-            </div>
-        </div>
+    <form>
+      <input type="button" value="乱数の取得" onClick="random()">
+      <span id="ransuu">表示場所</span><br>
+      <span id="result"></span>
+    </form>
 
-        <script src="app.js"></script>
-    </body>
+    <script src="app.js"></script>
+  </body>
 </html>
