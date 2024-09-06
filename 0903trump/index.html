@@ -10,15 +10,11 @@
             <b class="title">HIGH & LOW</b>
             <b id="scoremath" class="font"></b>
         </div>
-        
-        
-
-
         <div class="cardFlex">
             <div class="deckBox">
                 <b class="font">山札</b>
                 <img src="img/deck.png" class="deck">
-                <br><b class="font">？枚</b>
+                <br><b id="deck" class="font">？枚</b>
             </div>
             <div>
                 <img id="cardImage" src="img/back.png" class="card">
@@ -33,20 +29,19 @@
                 <img src="img/deck.png" class="deck">
                 <br><b id="handCard" class="font">10枚</b>
             </div>
-            
-            
-            
         </div>
-
-        
-
         <div class="btnFlex">
             <button onclick="drawCard()">カードを引く</button>
             <button onclick="highBtn()">High</button>
             <button onclick="lowBtn()">Low</button>
             <button onclick="resetBtn()">リセット</button>
         </div>
-        
+
+        <div class="popup">
+            <div class="popupMsg">
+                <h1>ポップアップ</h1>            
+            </div>
+        </div>
 
         <script src="app.js"></script>
     </body>

@@ -83,3 +83,17 @@ body {
   width: 15vw;
   border: none;
 }
+
+/* ポップアップ親クラス */
+.popup {
+  position: relative;
+  border: 3px solid black;
+}
+/* ポップアップ子クラス */
+.popupMsg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  
+}
