@@ -6,17 +6,67 @@
     <title>HIGH and LOW</title>
   </head>
   <body>
-    <div class="wrapper">
-      <button id="get">Get Random Cards</button> <!-- 「カード」に変更 -->
-      <div id="card"></div>
+    <div class="hidden">
+      <div class="mainFlex">
+        <div class="leftDiv">
+          <h1 class="leftFont"><nobr>HIGH & LOW</nobr></h1>
+        </div>
+        <div>
+          <div class="verticalBox">
+            <div class="cpuCards">
+              <img src="img/back.png" class="cpuCard1" alt="">
+              <img src="img/back.png" class="cpuCard2" alt="">
+              <img src="img/back.png" class="cpuCard3" alt="">
+              <img src="img/back.png" alt="">
+              <img src="img/back.png" alt="">
+              <img src="img/back.png" alt="">
+              <img src="img/back.png" alt="">
+              <img src="img/back.png" alt="">
+              <img src="img/back.png" alt="">
+              <img src="img/back.png" alt="">
+            </div>
+            <div class="battleCards">
+              <h1>CPU</h1>
+              <h1>お題</h1>
+              <h1>Player</h1>
+            </div>
+            <div class="playerCards">
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <p>5</p>
+              <p>6</p>
+              <p>7</p>
+              <p>8</p>
+              <p>9</p>
+              <p>10</p>
+            </div>
+          </div>
+        </div>
+        <div class="rightDiv">
+          <h1 class="rightFont"><nobr>HIGH & LOW</nobr></h1>
+        </div>
+      </div>
     </div>
-
-    <form>
-      <input type="button" value="乱数の取得" onClick="random()">
-      <span id="ransuu">表示場所</span><br>
-      <span id="result"></span>
-    </form>
-
+    
+    
+    
+      <div>
+        <button id="get">Get Random Cards</button> <!-- 「カード」に変更 -->
+        <div id="card"></div>
+      </div>
+  
+      
+        <input type="button" value="乱数の取得" onClick="random()">
+        <span id="ransuu">表示場所</span><br>
+        <span id="result"></span>
+      
+  
+      <img src="img/back.png" onClick="test()" id="card1" alt="aiueo">
+      
+    
+    
     <script src="app.js"></script>
   </body>
 </html>
