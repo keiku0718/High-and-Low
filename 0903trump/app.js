@@ -1,8 +1,12 @@
 // カード識別用
 var cardNo = 1;
 let cards = [];
+var apiUrl = "";
 
-const apiUrl = "https://deckofcardsapi.com/api/deck/new/draw/?count=20"; // 一度に20枚取得
+window.onload = function() {
+  apiUrl = "https://deckofcardsapi.com/api/deck/new/draw/?count=20"; // 一度に20枚取得
+};
+
 
 // 手札
 document.getElementById("get").addEventListener("click", async () => {
@@ -217,6 +221,11 @@ function showCard(card, playNum) {
   cpuCardId = document.getElementById("cpuCardId" + (cpuRandom - 9));
   cpuBattleCard = document.getElementById("cpuBattleCard");
   cpuBattleCard.src = cards[cpuRandom].image;
+  
   cards[cpuRandom] = 0;
   cpuCardId.style.display = "none";
+}
+// リセットボタン
+function resetBtn() {
+  location.reload();
 }

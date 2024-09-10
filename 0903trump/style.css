@@ -4,7 +4,10 @@
 }
 
 html {
-  
+  background-image: url(img/backimage.png);
+  background-size: cover; /* または contain */
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 
