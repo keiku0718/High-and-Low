@@ -85,8 +85,6 @@ document.getElementById("get").addEventListener("click", async () => {
   playCardId8.src = cards[7].image;
   playCardId9.src = cards[8].image;
   playCardId10.src = cards[9].image;
-
-
 });
 
 // お題をランダムで表示
@@ -105,52 +103,64 @@ function random() {
     document.getElementById("ransuu").innerHTML = num; 
 }
 
+
+function outherFunction() {
+  let outerVariable = "Outer"
+
+  function innerFunction() {
+    console.log(outerVariable);
+  }
+
+  innerFunction();
+
+}
+outherFunction();
+
 // カード選択1~10枚目
 function cardSelect1() {
   const no = document.getElementById("card1");
-  no.style.width = '400px';
-  alert("取得：1");
+  showCard(cards[0], 0);
   var playCard = convert(cards[0].value);
-  compare(playCard);
+  // compare(playCard);
 }
 function cardSelect2() {
   var no = document.getElementById("card2");
-  no.style.width = '400px';
-  alert("取得：2");
+  showCard(cards[1], 1);
+  var playCard = convert(cards[1].value);
 }
 function cardSelect3() {
-  var no = document.getElementById("card3");
-  alert("取得：3");
+  showCard(cards[2], 2);
+  var playCard = convert(cards[2].value);
 }
 function cardSelect4() {
-  var no = document.getElementById("card4");
-  alert("取得：4");
+  showCard(cards[3], 3);
+  var playCard = convert(cards[3].value);
 }
 function cardSelect5() {
-  var no = document.getElementById("card5");
-  alert("取得：5");
+  showCard(cards[4], 4);
+  var playCard = convert(cards[4].value);
 }
 function cardSelect6() {
-  var no = document.getElementById("card6");
-  alert("取得：6");
+  showCard(cards[5], 5);
+  var playCard = convert(cards[5].value);
 }
 function cardSelect7() {
-  var no = document.getElementById("card7");
-  alert("取得：7");
+  showCard(cards[6], 6);
+  var playCard = convert(cards[6].value);
 }
 function cardSelect8() {
-  var no = document.getElementById("card8");
-  alert("取得：8");
+  showCard(cards[7], 7);
+  var playCard = convert(cards[7].value);
 }
 function cardSelect9() {
-  var no = document.getElementById("card9");
-  alert("取得：9");
+  showCard(cards[8], 8);
+  var playCard = convert(cards[8].value);
 }
 function cardSelect10() {
-  var no = document.getElementById("card10");
-  alert("取得：10");
+  showCard(cards[9], 9);
+  var playCard = convert(cards[9].value);
 }
-// 比較
+// 比較・使用済みカード削除
 function compare(playCard) {
   var num = Math.floor(Math.random() * 10) + 11;
   var cpuCard = convert(cards[num].value);
@@ -179,4 +189,15 @@ function convert(value) {
       break;
   }
   return convertValue;
+}
+// カードを場に出す
+function showCard(card, playNum) {
+  playBattleCard = document.getElementById("playBattleCard");
+  playBattleCard.src = card.image;
+
+  // 指定カードを削除
+  cards[playNum] = 0;
+  playCardId = document.getElementById("playCardId" + (playNum + 1));
+  // 指定カードを非表示
+  playCardId.style.display = "none";
 }
