@@ -121,7 +121,6 @@ function cardSelect1() {
   const no = document.getElementById("card1");
   showCard(cards[0], 0);
   var playCard = convert(cards[0].value);
-  // compare(playCard);
 }
 function cardSelect2() {
   var no = document.getElementById("card2");
@@ -160,14 +159,14 @@ function cardSelect10() {
   showCard(cards[9], 9);
   var playCard = convert(cards[9].value);
 }
-// 比較・使用済みカード削除
-function compare(playCard) {
-  var num = Math.floor(Math.random() * 10) + 11;
-  var cpuCard = convert(cards[num].value);
-  
+// // 比較・使用済みカード削除
+// function compare(playCard) {
+//   var num = Math.floor(Math.random() * 10) + 11;
+//   var cpuCard = convert(cards[num].value);
 
-  alert(playCard + "：" + cpuCard);
-}
+
+//   alert(playCard + "：" + cpuCard);
+// }
 // 変換
 function convert(value) {
   var convertValue = 0;
@@ -190,14 +189,27 @@ function convert(value) {
   }
   return convertValue;
 }
+
 // カードを場に出す
 function showCard(card, playNum) {
   playBattleCard = document.getElementById("playBattleCard");
   playBattleCard.src = card.image;
 
-  // 指定カードを削除
+  // プレイヤーの指定カードを削除
   cards[playNum] = 0;
   playCardId = document.getElementById("playCardId" + (playNum + 1));
-  // 指定カードを非表示
   playCardId.style.display = "none";
+
+  // CPUのカードをランダムで選ぶ
+  let cpuRandom;
+  do {
+    cpuRandom = Math.floor(Math.random() * 10) + 10;
+  } while (cards[cpuRandom] === 0);
+
+  // CPUの選んだカードを場に出す
+  cpuCardId = document.getElementById("cpuCardId" + (cpuRandom - 9));
+  cpuBattleCard = document.getElementById("cpuBattleCard");
+  cpuBattleCard.src = cards[cpuRandom].image;
+  cards[cpuRandom] = 0;
+  cpuCardId.style.display = "none";
 }
