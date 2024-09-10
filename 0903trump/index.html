@@ -6,64 +6,61 @@
     <title>HIGH and LOW</title>
   </head>
   <body>
-    <div class="hidden">
-      <div class="mainFlex">
-        <div class="leftDiv">
-          <h1 class="leftFont"><nobr>HIGH & LOW</nobr></h1>
+    <div class="mainFlex">
+      <img src="img/left.png" alt="" class="leftImg">
+      <div>
+        <div class="cpuCards">
+          <img src="img/back.png" alt="" id="cpuCardId1">
+          <img src="img/back.png" alt="" id="cpuCardId2">
+          <img src="img/back.png" alt="" id="cpuCardId3">
+          <img src="img/back.png" alt="" id="cpuCardId4">
+          <img src="img/back.png" alt="" id="cpuCardId5">
+          <img src="img/back.png" alt="" id="cpuCardId6">
+          <img src="img/back.png" alt="" id="cpuCardId7">
+          <img src="img/back.png" alt="" id="cpuCardId8">
+          <img src="img/back.png" alt="" id="cpuCardId9">
+          <img src="img/back.png" alt="" id="cpuCardId10">
         </div>
-        <div>
-          <div class="verticalBox">
-            <div class="cpuCards">
-              <img src="img/back.png" class="cpuCard1" alt="">
-              <img src="img/back.png" class="cpuCard2" alt="">
-              <img src="img/back.png" class="cpuCard3" alt="">
-              <img src="img/back.png" alt="">
-              <img src="img/back.png" alt="">
-              <img src="img/back.png" alt="">
-              <img src="img/back.png" alt="">
-              <img src="img/back.png" alt="">
-              <img src="img/back.png" alt="">
-              <img src="img/back.png" alt="">
-            </div>
-            <div class="battleCards">
-              <h1>CPU</h1>
-              <h1>お題</h1>
-              <h1>Player</h1>
-            </div>
-            <div class="playerCards">
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
-              <p>4</p>
-              <p>5</p>
-              <p>6</p>
-              <p>7</p>
-              <p>8</p>
-              <p>9</p>
-              <p>10</p>
-            </div>
+        <div class="battleCards">
+          <div>
+            <p>あいて</p>
+            <img src="img/back.png" alt="" class="battleCard">
+          </div>
+          <h1>High!</h1>
+          <div>
+            <p>あなた</p>
+            <img src="img/back.png" alt="" class="battleCard">
           </div>
         </div>
-        <div class="rightDiv">
-          <h1 class="rightFont"><nobr>HIGH & LOW</nobr></h1>
+        <div class="playCards">
+          <img src="img/back.png" alt="" id="playCardId1" onClick="cardSelect1()">
+          <img src="img/back.png" alt="" id="playCardId2" onClick="cardSelect2()">
+          <img src="img/back.png" alt="" id="playCardId3" onClick="cardSelect3()">
+          <img src="img/back.png" alt="" id="playCardId4" onClick="cardSelect4()">
+          <img src="img/back.png" alt="" id="playCardId5" onClick="cardSelect5()">
+          <img src="img/back.png" alt="" id="playCardId6" onClick="cardSelect6()">
+          <img src="img/back.png" alt="" id="playCardId7" onClick="cardSelect7()">
+          <img src="img/back.png" alt="" id="playCardId8" onClick="cardSelect8()">
+          <img src="img/back.png" alt="" id="playCardId9" onClick="cardSelect9()">
+          <img src="img/back.png" alt="" id="playCardId10" onClick="cardSelect10()">
         </div>
       </div>
+      <img src="img/right.png" alt="" class="rightImg">
     </div>
+      
     
-    
-    
+
+    <div class="">
       <div>
         <button id="get">Get Random Cards</button> <!-- 「カード」に変更 -->
         <div id="card"></div>
       </div>
-  
-      
-        <input type="button" value="乱数の取得" onClick="random()">
-        <span id="ransuu">表示場所</span><br>
-        <span id="result"></span>
-      
-  
+      <input type="button" value="乱数の取得" onClick="random()">
+      <span id="ransuu">表示場所</span><br>
+      <span id="result"></span>
       <img src="img/back.png" onClick="test()" id="card1" alt="aiueo">
+    </div>
+      
       
     
     

@@ -1,107 +1,202 @@
-/* 全体背景色 */
 * {
   margin: 0;
   padding: 0;
 }
 
 html {
-  /* background-color: rgb(125, 213, 213); */
+  
 }
 
 
 body {
   
 }
-
+/* 全体Flex */
 .mainFlex {
   display: flex;
   justify-content: center;
 }
-/* 左div */
-.leftDiv {
+/* 左画像 */
+.leftImg {
+  height: 45vw;
+  margin-right: auto;
 }
-/* 左のHigh & Low */
-.leftFont {
-}
-/* 右Div */
-.rightDiv {
-}
-/* 右のHigh & Low */
-.rightFont {
-   
-}
-/* CPUカード・お題・プレイヤー */
-.verticalBox {
-  display: block;
+/* 右画像 */
+.rightImg {
+  height: 45vw;
+  margin-left: auto;
 }
 /* CPUのカードリスト */
 .cpuCards {
   display: flex;
-  justify-content: space-around;
-}
-/* CPUのカード */
-.cpuCards img {
-  width: 13vw;
-  object-position: right 0 bottom 8vw;
-  position: absolute;
-  display: none;/*非表示*/
-}
-/* CPUカード1~10枚 */
-.cpuCards img:nth-of-type(1) {
+  position: relative;
   
 }
-.cpuCards img:nth-of-type(2) {
-  margin-left: 12vw;
-  z-index: 1;
-}
-.cpuCards img:nth-of-type(3) {
+/* CPUのカード画像 */
+.cpuCards img {
   position: absolute;
-  margin-left: 24vw;
-  z-index: 2;
+  object-position: right 0 bottom 5vw;
 }
-.cpuCards img:nth-of-type(4) {
-  position: absolute;
-  margin-left: 36vw;
-  z-index: 3;
-}
-.cpuCards img:nth-of-type(5) {
-  position: absolute;
-  margin-left: 48vw;
-  z-index: 4;
-}
-.cpuCards img:nth-of-type(6) {
-  position: absolute;
-  margin-left: 60vw;
-  z-index: 5;
-}
-.cpuCards img:nth-of-type(7) {
-  position: absolute;
-  margin-left: 72vw;
-  z-index: 6;
-}
-.cpuCards img:nth-of-type(8) {
-  position: absolute;
-  margin-left: 84vw;
-  z-index: 7;
-}
-.cpuCards img:nth-of-type(9) {
-  position: absolute;
-  margin-left: 96vw;
-  z-index: 8;
-}
-.cpuCards img:nth-of-type(10) {
-  position: absolute;
-  margin-left: 108vw;
+/* CPUのカード */
+.cpuCards img:nth-of-type(1) {
+  width: 8vw;
+  margin-left: 6vw;
   z-index: 9;
 }
-/* お題Flex */
+.cpuCards img:nth-of-type(2) {
+  width: 8vw;
+  margin-left: 10vw;
+  z-index: 8;
+}
+.cpuCards img:nth-of-type(3) {
+  width: 8vw;
+  margin-left: 14vw;
+  z-index: 7;
+}
+.cpuCards img:nth-of-type(4) {
+  width: 8vw;
+  margin-left: 18vw;
+  z-index: 6;
+}
+.cpuCards img:nth-of-type(5) {
+  width: 8vw;
+  margin-left: 22vw;
+  z-index: 5;
+}
+.cpuCards img:nth-of-type(6) {
+  width: 8vw;
+  margin-left: 26vw;
+  z-index: 4;
+}
+.cpuCards img:nth-of-type(7) {
+  width: 8vw;
+  margin-left: 30vw;
+  z-index: 3;
+}
+.cpuCards img:nth-of-type(8) {
+  width: 8vw;
+  margin-left: 34vw;
+  z-index: 2;
+}
+.cpuCards img:nth-of-type(9) {
+  width: 8vw;
+  margin-left: 38vw;
+  z-index: 1;
+}
+.cpuCards img:nth-of-type(10) {
+  width: 8vw;
+  margin-left: 42vw;
+}
+/* お題カードリスト */
 .battleCards {
   display: flex;
-  vertical-align: middle;
+  margin-top: 10vw;
+  text-align: center;
+}
+/* お題 */
+.battleCards h1 {
+  height: 100%;
+  margin: 8vw 3vw 0 3vw;
+  font-size: 7vw;
+}
+/* 表示カード */
+.battleCard {
+  
+}
+/* プレイヤーのカードリスト */
+.playCards {
+  display: flex;
+  position: relative;
+}
+/* プレイヤーのカード画像 */
+.playCards img {
+  position: absolute;
+  bottom: -10%;
+  position: fixed;
+}
+/* プレイヤーのカード */
+.playCards img:nth-of-type(1) {
+  width: 8vw;
+  margin-left: 6vw;
+}
+.playCards img:nth-of-type(2) {
+  width: 8vw;
+  margin-left: 10vw;
+  z-index: 1;
+}
+.playCards img:nth-of-type(3) {
+  width: 8vw;
+  margin-left: 14vw;
+  z-index: 2;
+}
+.playCards img:nth-of-type(4) {
+  width: 8vw;
+  margin-left: 18vw;
+  z-index: 3;
+}
+.playCards img:nth-of-type(5) {
+  width: 8vw;
+  margin-left: 22vw;
+  z-index: 4;
+}
+.playCards img:nth-of-type(6) {
+  width: 8vw;
+  margin-left: 26vw;
+  z-index: 5;
+}
+.playCards img:nth-of-type(7) {
+  width: 8vw;
+  margin-left: 30vw;
+  z-index: 6;
+}
+.playCards img:nth-of-type(8) {
+  width: 8vw;
+  margin-left: 34vw;
+  z-index: 7;
+}
+.playCards img:nth-of-type(9) {
+  width: 8vw;
+  margin-left: 38vw;
+  z-index: 8;
+}
+.playCards img:nth-of-type(10) {
+  width: 8vw;
+  margin-left: 42vw;
+  z-index: 9;
+}
+/* プレイヤーのカードアニメーション */
+.playCards img:nth-of-type(1):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(2):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(3):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(4):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(5):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(6):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(7):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(8):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(9):hover {
+  margin-bottom: 3vw;
+}
+.playCards img:nth-of-type(10):hover {
+  margin-bottom: 3vw;
 }
 
-
-
+/* 非表示 */
 .hidden {
   display: none;
 }
