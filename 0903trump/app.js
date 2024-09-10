@@ -103,25 +103,12 @@ function random() {
     document.getElementById("ransuu").innerHTML = num; 
 }
 
-
-function outherFunction() {
-  let outerVariable = "Outer"
-
-  function innerFunction() {
-    console.log(outerVariable);
-  }
-
-  innerFunction();
-
-}
-outherFunction();
-
 // カード選択1~10枚目
 function cardSelect1() {
   const no = document.getElementById("card1");
   showCard(cards[0], 0);
   var playCard = convert(cards[0].value);
-  // compare(playCard);
+  //compare(playCard);
 }
 function cardSelect2() {
   var no = document.getElementById("card2");
@@ -160,14 +147,34 @@ function cardSelect10() {
   showCard(cards[9], 9);
   var playCard = convert(cards[9].value);
 }
-// 比較・使用済みカード削除
+
+/* 比較・使用済みカード削除
 function compare(playCard) {
   var num = Math.floor(Math.random() * 10) + 11;
   var cpuCard = convert(cards[num].value);
   
 
   alert(playCard + "：" + cpuCard);
-}
+}*/
+
+  if(result == 2){
+    if(playCard > cpuCard){
+      alert("勝利");
+    }else if(playCard < cpuCard){
+      alert("敗北");
+    }else{
+      alert("引き分け");
+    }
+  }else{
+    if(playCard < cpuCard){
+      alert("勝利");
+    }else if(playCard > cpuCard){
+      alert("敗北");
+    }else{
+      alert("引き分け");
+    }
+  }
+
 // 変換
 function convert(value) {
   var convertValue = 0;
