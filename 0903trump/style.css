@@ -4,15 +4,16 @@
 }
 
 html {
-  background-image: url(img/backimage.png);
-  background-size: cover; /* または contain */
-  background-repeat: no-repeat;
-  background-position: center;
+
 }
 
 
 body {
-  
+  background-image: url(img/backimage.png);
+  background-size: cover; /* または contain */
+  /* background-repeat: no-repeat; */
+  background-attachment: fixed;
+  background-position: center center;  
 }
 /* 全体Flex */
 .mainFlex {
