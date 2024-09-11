@@ -1,6 +1,10 @@
 // カード識別用
 var cardNo = 1;
 let cards = [];
+// 勝敗チェック用
+let playValue = "";
+let cpuValue = "";
+
 const apiUrl = "https://deckofcardsapi.com/api/deck/new/draw/?count=20"; // 一度に20枚取得
 
 //回数カウント
@@ -278,7 +282,7 @@ function showCard(card, playNum) {
   playBattleCard.src = card.image;
 
   // 勝敗チェック用
-  let playValue = cards[playNum].value;
+  playValue = cards[playNum].value;
 
   // プレイヤーの指定カードを削除
   cards[playNum] = 0;
@@ -297,21 +301,18 @@ function showCard(card, playNum) {
   cpuBattleCard.src = cards[cpuRandom].image;
   
   // 勝敗チェック用
-  let cpuValue = cards[cpuRandom].value;
+  cpuValue = cards[cpuRandom].value;
   
   // CPUの指定カードを削除
   cards[cpuRandom] = 0;
   cpuCardId.style.display = "none";
 
-  // 勝敗チェックの値
-  alert("play：" + playValue + "," + "cpu：" + cpuValue);
-  checkResult();
-  // alert("play：" + cards[0].value + "," + "cpu：" + "");
+  // 勝敗チェック
+  checkResult(playValue, cpuValue);
 }
 
 //勝敗結果
 function checkResult(playValue, cpuValue) {
-  alert("play：" + playValue + "," + "cpu：" + cpuValue);
   if(result == "HIGH"){
     if(playValue > cpuValue){
       alert("勝利");
@@ -319,7 +320,6 @@ function checkResult(playValue, cpuValue) {
       alert("敗北");
     }else{
       alert("引き分け");
-      alert(result);
     }
   }else{
     if(playValue < cpuValue){
@@ -328,7 +328,6 @@ function checkResult(playValue, cpuValue) {
       alert("敗北");
     }else{
       alert("引き分け");
-      alert(result);
     }
   }
   random();
