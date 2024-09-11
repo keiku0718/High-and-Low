@@ -3,6 +3,12 @@ var cardNo = 1;
 let cards = [];
 const apiUrl = "https://deckofcardsapi.com/api/deck/new/draw/?count=20"; // 一度に20枚取得
 
+//回数カウント
+let win = 0;
+let cnt = 0;
+
+//お題
+let result = 0;
 
 window.onload = async function() {
   const cardDiv = document.getElementById("card");
@@ -85,11 +91,14 @@ window.onload = async function() {
   playCardId9.src = cards[8].image;
   playCardId10.src = cards[9].image;
 
+  random();
+};
+
   // お題をランダムで表示
+function random(){
       //1か2の乱数生成
       var num = Math.floor(Math.random() * 2 + 1); 
 
-      let result = "";
       if (num % 2 == 0) {
           result = "HIGH";
       } else {
@@ -98,7 +107,7 @@ window.onload = async function() {
   
       document.getElementById("result").innerHTML = result; 
       document.getElementById("ransuu").innerHTML = num; 
-};
+}
 
 
 // // 手札
@@ -301,24 +310,28 @@ function showCard(card, playNum) {
 }
 
 //勝敗結果
-function checkResult(playCard, cpuCard, result) {
+function checkResult(playValue, cpuValue) {
+  alert("play：" + playValue + "," + "cpu：" + cpuValue);
   if(result == "HIGH"){
-    if(playCard > cpuCard){
+    if(playValue > cpuValue){
       alert("勝利");
-    }else if(playCard < cpuCard){
+    }else if(playValue < cpuValue){
       alert("敗北");
     }else{
       alert("引き分け");
+      alert(result);
     }
   }else{
-    if(playCard < cpuCard){
+    if(playValue < cpuValue){
       alert("勝利");
-    }else if(playCard > cpuCard){
+    }else if(playValue > cpuValue){
       alert("敗北");
     }else{
       alert("引き分け");
+      alert(result);
     }
   }
+  random();
 }
 
 // リセットボタン
