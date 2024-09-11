@@ -298,17 +298,28 @@ function showCard(card, playNum) {
   // CPUの選んだカードを場に出す
   cpuCardId = document.getElementById("cpuCardId" + (cpuRandom - 9));
   cpuBattleCard = document.getElementById("cpuBattleCard");
-  cpuBattleCard.src = cards[cpuRandom].image;
-  
-  // 勝敗チェック用
-  cpuValue = cards[cpuRandom].value;
-  
-  // CPUの指定カードを削除
-  cards[cpuRandom] = 0;
-  cpuCardId.style.display = "none";
+  // cpuBattleCard.src = cards[cpuRandom].image;
 
-  // 勝敗チェック
-  checkResult(playValue, cpuValue);
+  // 1秒後に実行
+  setTimeout(function() {
+    cpuBattleCard = document.getElementById("cpuBattleCard");
+    cpuBattleCard.src = cards[cpuRandom].image;
+  }, 1000);
+  
+  // 2秒後に実行
+  setTimeout(function() {
+    // 勝敗チェック用
+    cpuValue = cards[cpuRandom].value;
+
+    // CPUの指定カードを削除
+    cards[cpuRandom] = 0;
+    cpuCardId.style.display = "none";
+
+    // 勝敗チェック
+    checkResult(playValue, cpuValue);
+  }, 2000);
+  
+  
 }
 
 //勝敗結果
@@ -337,3 +348,10 @@ function checkResult(playValue, cpuValue) {
 function resetBtn() {
   location.reload();
 }
+
+// ポップアップ
+function popup() {
+
+}
+
+
