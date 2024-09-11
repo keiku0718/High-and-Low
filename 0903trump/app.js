@@ -326,19 +326,19 @@ function showCard(card, playNum) {
 function checkResult(playValue, cpuValue) {
   if(result == "HIGH"){
     if(playValue > cpuValue){
-      alert("勝利");
+      outCome("勝利");
     }else if(playValue < cpuValue){
-      alert("敗北");
+      outCome("敗北");
     }else{
-      alert("引き分け");
+      outCome("引き分け");
     }
   }else{
     if(playValue < cpuValue){
-      alert("勝利");
+      outCome("勝利");
     }else if(playValue > cpuValue){
-      alert("敗北");
+      outCome("敗北");
     }else{
-      alert("引き分け");
+      outCome("引き分け");
     }
   }
   random();
@@ -349,9 +349,34 @@ function resetBtn() {
   location.reload();
 }
 
-// ポップアップ
-function popup() {
-
+// 勝敗・引き分けポップアップ
+function outCome(msg) {
+  
+  switch (msg){
+    case "勝利":
+      winPop = document.getElementById("winPop");
+      winPop.style.display = 'flex';
+      // 1秒後に実行
+      setTimeout(function() {
+        winPop.style.display = 'none';
+      }, 1000);
+      break;
+    case "敗北":
+      losePop = document.getElementById("losePop");
+      losePop.style.display = 'flex';
+      // 1秒後に実行
+      setTimeout(function() {
+        losePop.style.display = 'none';
+      }, 1000);
+      break;
+    case "引き分け":
+      alert("引き分け");
+      break;
+    default :
+      alert("エラー");
+      break;
+  }
+    
 }
 
 

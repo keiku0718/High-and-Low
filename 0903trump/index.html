@@ -62,42 +62,42 @@
       <img src="img/back.png" onClick="test()" id="card1" alt="aiueo">
     </div>
     
-
     
     <!-- ポップアップ -->
 
     <!-- 正解 -->
-   <div class="pop-up">     
-      <img src="C:\Users\SP-yobi1\Desktop\high&low\img\まる.png" class="img">
+    <div class="pop-up" id="winPop">
+      <img src="img/yes.png" class="img">
       <p class="p-OK">
-        せいかい！！
+        勝利
       </p>
     </div>
 
-
     <!-- 間違い -->
-    <div class="pop-up">
-
-      <img src="C:\Users\SP-yobi1\Desktop\high&low\img\ばつ.png" class="img">
-
-      <p class="p-OK">
-          まちがい！！
-      </p>
-    </div>   
+    <div class="hidden">
+      <div class="pop-up" id="losePop">
+        <img src="img/no.png" class="img">
+        <p class="p-OK">
+            まちがい！！
+        </p>
+      </div>
+    </div>
 
 
     <!-- スコア -->
-    <div class="pop-up">
-      <p class="p">おつです。<br>
-          あなたのスコアは0/10点でした。<br>
-          リトライしますか？
-      </p>
-      
-      <div class="botton">
-          <button type="button" class="buttonL">はい</button>
-          <button type="button" class="buttonL">いいえ</button>
+    <div class="hidden">
+      <div class="pop-up">
+        <p class="p">おつです。<br>
+            あなたのスコアは0/10点でした。<br>
+            リトライしますか？
+        </p>
+        
+        <div class="botton">
+            <button type="button" class="buttonL">はい</button>
+            <button type="button" class="buttonL">いいえ</button>
+        </div>
       </div>
-  </div>
+    </div>
 
     
     <script src="app.js"></script>
