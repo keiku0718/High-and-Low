@@ -233,6 +233,28 @@ body {
   padding: 20px;
 }
 
+.p {
+  color: aliceblue;
+  font-size: 20px;
+  text-align: center;
+}
+
+.botton {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.buttonL {
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  background-color: black;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+}
+
 .p-OK{
   color: aliceblue;
   font-size: 30px;
