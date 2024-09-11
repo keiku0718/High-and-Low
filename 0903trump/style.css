@@ -9,7 +9,7 @@ html {
 
 
 body {
-  background-image: url(img/backimage.png);
+  /* background-image: url(img/backimage.png); */
   background-size: cover; /* または contain */
   /* background-repeat: no-repeat; */
   background-attachment: fixed;
@@ -96,6 +96,11 @@ body {
   display: flex;
   margin-top: 10vw;
   text-align: center;
+}
+/* バトルカードのpタグ */
+.battleCards p {
+  font-weight: bold;
+  font-size: 2vw;
 }
 /* お題 */
 .battleCards h1 {

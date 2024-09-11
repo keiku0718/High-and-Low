@@ -189,8 +189,8 @@ function cardSelect1() {
   const no = document.getElementById("card1");
   showCard(cards[0], 0);
   var playCardValue = convert(cards[0].value);
-  var cpuCardValue = convert(cards[cpuRandom].value);
-  checkResult(playCardValue, cpuCardValue);
+  // var cpuCardValue = convert(cards[cpuRandom].value);
+  // checkResult(playCardValue, cpuCardValue);
   //compare(playCard);
 }
 function cardSelect2() {
@@ -239,27 +239,6 @@ function compare(playCard) {
   alert(playCard + "：" + cpuCard);
 }*/
 
-//勝敗結果
-function checkResult(playCard, cpuCard, result) {
-  if(result == "HIGH"){
-    if(playCard > cpuCard){
-      alert("勝利");
-    }else if(playCard < cpuCard){
-      alert("敗北");
-    }else{
-      alert("引き分け");
-    }
-  }else{
-    if(playCard < cpuCard){
-      alert("勝利");
-    }else if(playCard > cpuCard){
-      alert("敗北");
-    }else{
-      alert("引き分け");
-    }
-  }
-}
-
 // 変換
 function convert(value) {
   var convertValue = 0;
@@ -289,6 +268,9 @@ function showCard(card, playNum) {
   playBattleCard = document.getElementById("playBattleCard");
   playBattleCard.src = card.image;
 
+  // 勝敗チェック用
+  let playValue = cards[playNum].value;
+
   // プレイヤーの指定カードを削除
   cards[playNum] = 0;
   playCardId = document.getElementById("playCardId" + (playNum + 1));
@@ -305,9 +287,40 @@ function showCard(card, playNum) {
   cpuBattleCard = document.getElementById("cpuBattleCard");
   cpuBattleCard.src = cards[cpuRandom].image;
   
+  // 勝敗チェック用
+  let cpuValue = cards[cpuRandom].value;
+  
+  // CPUの指定カードを削除
   cards[cpuRandom] = 0;
   cpuCardId.style.display = "none";
+
+  // 勝敗チェックの値
+  alert("play：" + playValue + "," + "cpu：" + cpuValue);
+  checkResult();
+  // alert("play：" + cards[0].value + "," + "cpu：" + "");
 }
+
+//勝敗結果
+function checkResult(playCard, cpuCard, result) {
+  if(result == "HIGH"){
+    if(playCard > cpuCard){
+      alert("勝利");
+    }else if(playCard < cpuCard){
+      alert("敗北");
+    }else{
+      alert("引き分け");
+    }
+  }else{
+    if(playCard < cpuCard){
+      alert("勝利");
+    }else if(playCard > cpuCard){
+      alert("敗北");
+    }else{
+      alert("引き分け");
+    }
+  }
+}
+
 // リセットボタン
 function resetBtn() {
   location.reload();
