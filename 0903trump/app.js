@@ -109,7 +109,9 @@ document.getElementById("get").addEventListener("click", async () => {
 function cardSelect1() {
   const no = document.getElementById("card1");
   showCard(cards[0], 0);
-  var playCard = convert(cards[0].value);
+  var playCardValue = convert(cards[0].value);
+  var cpuCardValue = convert(cards[cpuRandom].value);
+  checkResult(playCardValue, cpuCardValue);
   //compare(playCard);
 }
 function cardSelect2() {
@@ -158,7 +160,9 @@ function compare(playCard) {
   alert(playCard + "：" + cpuCard);
 }*/
 
-  if(result == 2){
+//勝敗結果
+function checkResult(playCard, cpuCard, result) {
+  if(result == "HIGH"){
     if(playCard > cpuCard){
       alert("勝利");
     }else if(playCard < cpuCard){
@@ -175,6 +179,8 @@ function compare(playCard) {
       alert("引き分け");
     }
   }
+}
+
 // 変換
 function convert(value) {
   var convertValue = 0;
