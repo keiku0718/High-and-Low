@@ -89,23 +89,21 @@ document.getElementById("get").addEventListener("click", async () => {
   playCardId8.src = cards[7].image;
   playCardId9.src = cards[8].image;
   playCardId10.src = cards[9].image;
+
+  // お題をランダムで表示
+      //1か2の乱数生成
+      var num = Math.floor(Math.random() * 2 + 1); 
+
+      let result = "";
+      if (num % 2 == 0) {
+          result = "HIGH";
+      } else {
+          result = "LOW";
+      }
+  
+      document.getElementById("result").innerHTML = result; 
+      document.getElementById("ransuu").innerHTML = num; 
 });
-
-// お題をランダムで表示
-function random() {
-    //1か2の乱数生成
-    var num = Math.floor(Math.random() * 2 + 1); 
-
-    let result = "";
-    if (num % 2 == 0) {
-        result = "HIGH";
-    } else {
-        result = "LOW";
-    }
-
-    document.getElementById("result").innerHTML = result; 
-    document.getElementById("ransuu").innerHTML = num; 
-}
 
 // カード選択1~10枚目
 function cardSelect1() {
