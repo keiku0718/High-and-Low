@@ -26,7 +26,7 @@
             <p>あいて</p>
             <img src="img/back.png" alt="" class="battleCard" id="cpuBattleCard">
           </div>
-          <h1 id = "result">High!</h1>
+          <h1 id = "result">お題</h1>
           <div>
             <p>あなた</p>
             <img src="img/back.png" alt="" class="battleCard" id="playBattleCard">
@@ -48,9 +48,7 @@
       </div>
       <img src="img/right.png" alt="" class="rightImg">
     </div>
-      
     
-
     <div class="hidden">
       <div>
         <button id="get">Get Random Cards</button> <!-- 「カード」に変更 -->
@@ -81,21 +79,28 @@
       </p>
     </div>
 
+    <!-- ひきわけ -->
+    <div class="pop-up" id="drawPop">
+      <img src="img/draw.png" class="img">
+      <p class="p-OK">
+          引き分け
+      </p>
+    </div>
 
     <!-- スコア -->
-    
-      <div class="pop">
-        <p class="p">おつです。<br>
-            <!-- <p class="p">あなたのスコアは</p><span class="p" id="win">0</span><span class="p">/10点でした。</span> -->
-             <span>あなたのスコアは<span id="win">0</span>/10点でした。</span>
-            <p class="p">リトライしますか？</p>
-        </p>
-        
-        <div class="botton">
-            <button type="button" class="buttonL" id = "resetBtn" >はい</button>
-            <button type="button" class="buttonL">いいえ</button>
-        </div>
+     <div id="pop">
+      <p class="p">おつです。<br>
+          <!-- <p class="p">あなたのスコアは</p><span class="p" id="win">0</span><span class="p">/10点でした。</span> -->
+            <span>あなたのスコアは<span id="win">0</span>/10点でした。</span>
+          <p class="p">リトライしますか？</p>
+      </p>
+      <div class="botton">
+        <button type="button" class="buttonL" onClick="resetBtn()" >はい</button>
+        <button type="button" class="buttonL" onClick="resetNo()">いいえ</button>
       </div>
+    </div>
+
+    <button class="resetBtn" id="reset" onClick="resetBtn()">リセット</button>
     
 
     

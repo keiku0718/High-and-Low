@@ -4,6 +4,8 @@ let cards = [];
 // 勝敗チェック用
 let playValue = "";
 let cpuValue = "";
+// 連打対策boolean
+let boolean = true;
 
 const apiUrl = "https://deckofcardsapi.com/api/deck/new/draw/?count=20"; // 一度に20枚取得
 
@@ -15,6 +17,8 @@ let cnt = 0;
 let result = "";
 
 window.onload = async function() {
+  document.getElementById("pop").style.visibility = 'hidden';
+  document.getElementById("reset").style.visibility = 'hidden';
   const cardDiv = document.getElementById("card");
   cardDiv.innerHTML = ""; // 前回の結果をクリア
   cardNo = 1;
@@ -60,16 +64,16 @@ window.onload = async function() {
   cpuCardId9 = document.getElementById("cpuCardId9");
   cpuCardId10 = document.getElementById("cpuCardId10");
   // 取得IDにトランプ
-  cpuCardId1.src = cards[10].image;
-  cpuCardId2.src = cards[11].image;
-  cpuCardId3.src = cards[12].image;
-  cpuCardId4.src = cards[13].image;
-  cpuCardId5.src = cards[14].image;
-  cpuCardId6.src = cards[15].image;
-  cpuCardId7.src = cards[16].image;
-  cpuCardId8.src = cards[17].image;
-  cpuCardId9.src = cards[18].image;
-  cpuCardId10.src = cards[19].image;
+  // cpuCardId1.src = cards[10].image;
+  // cpuCardId2.src = cards[11].image;
+  // cpuCardId3.src = cards[12].image;
+  // cpuCardId4.src = cards[13].image;
+  // cpuCardId5.src = cards[14].image;
+  // cpuCardId6.src = cards[15].image;
+  // cpuCardId7.src = cards[16].image;
+  // cpuCardId8.src = cards[17].image;
+  // cpuCardId9.src = cards[18].image;
+  // cpuCardId10.src = cards[19].image;
 
 
   // プレイヤー画像配置IDの取得
@@ -161,16 +165,16 @@ document.getElementById("get").addEventListener("click", async () => {
   cpuCardId9 = document.getElementById("cpuCardId9");
   cpuCardId10 = document.getElementById("cpuCardId10");
   // 取得IDにトランプ
-  cpuCardId1.src = cards[10].image;
-  cpuCardId2.src = cards[11].image;
-  cpuCardId3.src = cards[12].image;
-  cpuCardId4.src = cards[13].image;
-  cpuCardId5.src = cards[14].image;
-  cpuCardId6.src = cards[15].image;
-  cpuCardId7.src = cards[16].image;
-  cpuCardId8.src = cards[17].image;
-  cpuCardId9.src = cards[18].image;
-  cpuCardId10.src = cards[19].image;
+  // cpuCardId1.src = cards[10].image;
+  // cpuCardId2.src = cards[11].image;
+  // cpuCardId3.src = cards[12].image;
+  // cpuCardId4.src = cards[13].image;
+  // cpuCardId5.src = cards[14].image;
+  // cpuCardId6.src = cards[15].image;
+  // cpuCardId7.src = cards[16].image;
+  // cpuCardId8.src = cards[17].image;
+  // cpuCardId9.src = cards[18].image;
+  // cpuCardId10.src = cards[19].image;
 
 
   // プレイヤー画像配置IDの取得
@@ -280,6 +284,9 @@ function convert(value) {
 function showCard(card, playNum) {
   playBattleCard = document.getElementById("playBattleCard");
   playBattleCard.src = card.image;
+  // 連打対策
+  // 場に出している間カードをクリック不可に
+  barrage(boolean);
 
   // 勝敗チェック用
   playValue = cards[playNum].value;
@@ -303,6 +310,7 @@ function showCard(card, playNum) {
   // 1秒後に実行
   setTimeout(function() {
     cpuBattleCard = document.getElementById("cpuBattleCard");
+    cpuCardId.style.display = "none";
     cpuBattleCard.src = cards[cpuRandom].image;
   }, 1000);
   
@@ -313,49 +321,66 @@ function showCard(card, playNum) {
 
     // CPUの指定カードを削除
     cards[cpuRandom] = 0;
-    cpuCardId.style.display = "none";
-
+    // cpuCardId.style.display = "none";
+    // alert("CPU：プレイヤー" + " | " + convert(cpuValue) + "：" + convert(playValue));
     // 勝敗チェック
-    checkResult(playValue, cpuValue);
+    checkResult(convert(playValue), convert(cpuValue));
+    // high
+    // checkResult(1, 7);
   }, 2000);
-  
-  
 }
 
 //勝敗結果
 function checkResult(playValue, cpuValue) {
-  if(result == "HIGH"){
-    if(playValue > cpuValue){
-      outCome("勝利");
-      win++;
-    }else if(playValue < cpuValue){
-      outCome("敗北");
-    }else{
-      outCome("引き分け");
-    }
-  }else{
-    if(playValue < cpuValue){
-      outCome("勝利");
-      win++;
-    }else if(playValue > cpuValue){
-      outCome("敗北");
-    }else{
-      outCome("引き分け");
-    }
+  // alert("check" + "プレイヤー：" + playValue + ",CPU：" + cpuValue + "  *" + result + "*");
+  console.log(`プレイヤー${playValue}`);
+  console.log(`CPU${cpuValue}`);
+  console.log(`プレイモード${result}`);
+  switch(result){
+    case "HIGH":
+      if((playValue - 0) > (cpuValue - 0)){
+        // alert("勝利！");
+        outCome("勝利");
+        win++;
+      }else{
+        if(playValue === cpuValue){
+          // alert("ドロー");
+          outCome("引き分け");
+        }else{
+          // alert("敗北");
+          outCome("敗北");
+        }
+      }
+      break;
+    case "LOW":
+      if((playValue - 0) < (cpuValue - 0)){
+        // alert("勝利！");
+        outCome("勝利");
+        win++;
+      }else{
+        if(playValue === cpuValue){
+          // alert("ドロー");
+          outCome("引き分け");
+        }else{
+          // alert("敗北");
+          outCome("敗北");
+        }
+      }
+      break;
   }
+
   random();
   cnt++;
-  // alert("回数は" + cnt + "回で、勝利回数は" + win);
-
-  if(cnt == 10){
-    alert("あらーと");
-    reset = document.getElementById("reset");
-      reset.style.display = 'flex';
-      // 1秒後に実行
-      setTimeout(function() {
-        reset.style.display = 'none';
-      }, 1000);
-      document.getElementById("reset").innerHTML = win; 
+  console.log(cnt);
+  if((cnt - 0) == 10) {
+    popup();
+  }
+}
+function popup(){
+  if ((cnt - 0) == 10) {
+    const reset = document.getElementById("pop");
+    reset.style.visibility = "visible";
+    document.getElementById("win").textContent = win;
   }
 }
 
@@ -364,12 +389,17 @@ function resetBtn() {
   location.reload();
 }
 
+// リセットボタン - いいえ
+function resetNo() {
+  document.getElementById("pop").style.visibility = 'hidden';
+  document.getElementById("reset").style.visibility = 'visible';
+}
+
 // 勝敗・引き分けポップアップ
 function outCome(msg) {
-  
-  switch (msg){
+  switch (msg) {
     case "勝利":
-      winPop = document.getElementById("winPop");
+      winPop = document.getElementById("winPop"); 
       winPop.style.display = 'flex';
 
       // 1秒後に実行
@@ -379,7 +409,9 @@ function outCome(msg) {
         playBattleCard.src = "img/back.png";
         cpuBattleCard = document.getElementById("cpuBattleCard");
         cpuBattleCard.src = "img/back.png";
-      }, 2000);
+        // 連打対策
+        barrage(boolean);
+      }, 1000);
       break;
     case "敗北":
       losePop = document.getElementById("losePop");
@@ -392,7 +424,9 @@ function outCome(msg) {
         playBattleCard.src = "img/back.png";
         cpuBattleCard = document.getElementById("cpuBattleCard");
         cpuBattleCard.src = "img/back.png";
-      }, 2000);
+        // 連打対策
+        barrage(boolean);
+      }, 1000);
       break;
     case "引き分け":
       drawPop = document.getElementById("drawPop");
@@ -405,7 +439,9 @@ function outCome(msg) {
         playBattleCard.src = "img/back.png";
         cpuBattleCard = document.getElementById("cpuBattleCard");
         cpuBattleCard.src = "img/back.png";
-      }, 2000);
+        // 連打対策
+        barrage(boolean);
+      }, 1000);
       break;
     default :
       alert("エラー");
@@ -414,4 +450,47 @@ function outCome(msg) {
   
 }
 
+// 連打対策
+function barrage() {
+  // プレイヤーカードID取得
+  playCardId1 = document.getElementById("playCardId1");
+  playCardId2 = document.getElementById("playCardId2");
+  playCardId3 = document.getElementById("playCardId3");
+  playCardId4 = document.getElementById("playCardId4");
+  playCardId5 = document.getElementById("playCardId5");
+  playCardId6 = document.getElementById("playCardId6");
+  playCardId7 = document.getElementById("playCardId7");
+  playCardId8 = document.getElementById("playCardId8");
+  playCardId9 = document.getElementById("playCardId9");
+  playCardId10 = document.getElementById("playCardId10");
 
+  if(boolean) {
+    // クリック可能から不可に
+    let change = "none";
+    playCardId1.style.pointerEvents = change;
+    playCardId2.style.pointerEvents = change;
+    playCardId3.style.pointerEvents = change;
+    playCardId4.style.pointerEvents = change;
+    playCardId5.style.pointerEvents = change;
+    playCardId6.style.pointerEvents = change;
+    playCardId7.style.pointerEvents = change;
+    playCardId8.style.pointerEvents = change;
+    playCardId9.style.pointerEvents = change;
+    playCardId10.style.pointerEvents = change;
+    boolean = false;
+  } else {
+    // クリック不可から可能に
+    let change = "auto";
+    playCardId1.style.pointerEvents = change;
+    playCardId2.style.pointerEvents = change;
+    playCardId3.style.pointerEvents = change;
+    playCardId4.style.pointerEvents = change;
+    playCardId5.style.pointerEvents = change;
+    playCardId6.style.pointerEvents = change;
+    playCardId7.style.pointerEvents = change;
+    playCardId8.style.pointerEvents = change;
+    playCardId9.style.pointerEvents = change;
+    playCardId10.style.pointerEvents = change;
+    boolean = true;
+  }
+}
