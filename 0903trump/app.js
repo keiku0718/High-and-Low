@@ -348,6 +348,7 @@ function checkResult(playValue, cpuValue) {
   alert("回数は" + cnt + "回で、勝利回数は" + win);
 
   if(cnt == 10){
+    alert("あらーと");
     reset = document.getElementById("reset");
       reset.style.display = 'flex';
       // 1秒後に実行

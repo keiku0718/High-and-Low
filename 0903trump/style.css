@@ -233,7 +233,6 @@ body {
   padding: 20px;
   display: none;
 }
-
 .p {
   color: aliceblue;
   font-size: 20px;
@@ -266,4 +265,30 @@ body {
   width: 200px;
   height: auto;
  
+}
+
+.reset {
+  display: flex;
+}
+
+
+.pop{
+  position: fixed; /* 固定位置 */
+  top: 50%; /* 縦の中央 */
+  left: 50%; /* 横の中央 */
+  transform: translate(-50%, -50%); /* 完全に中央に配置 */
+  background-color: black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 270px;
+  z-index: 9999; /* 最前面に表示するための値 */
+  padding: 20px;
+}
+
+.pop p {
+  
 }
