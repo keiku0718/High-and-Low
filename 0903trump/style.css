@@ -287,8 +287,5 @@ body {
   height: 270px;
   z-index: 9999; /* 最前面に表示するための値 */
   padding: 20px;
-}
-
-.pop p {
-  
+  display: none;
 }

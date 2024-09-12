@@ -345,7 +345,7 @@ function checkResult(playValue, cpuValue) {
   }
   random();
   cnt++;
-  alert("回数は" + cnt + "回で、勝利回数は" + win);
+  // alert("回数は" + cnt + "回で、勝利回数は" + win);
 
   if(cnt == 10){
     alert("あらーと");
@@ -371,27 +371,47 @@ function outCome(msg) {
     case "勝利":
       winPop = document.getElementById("winPop");
       winPop.style.display = 'flex';
+
       // 1秒後に実行
       setTimeout(function() {
         winPop.style.display = 'none';
-      }, 1000);
+        playBattleCard = document.getElementById("playBattleCard");
+        playBattleCard.src = "img/back.png";
+        cpuBattleCard = document.getElementById("cpuBattleCard");
+        cpuBattleCard.src = "img/back.png";
+      }, 2000);
       break;
     case "敗北":
       losePop = document.getElementById("losePop");
       losePop.style.display = 'flex';
+      
       // 1秒後に実行
       setTimeout(function() {
         losePop.style.display = 'none';
-      }, 1000);
+        playBattleCard = document.getElementById("playBattleCard");
+        playBattleCard.src = "img/back.png";
+        cpuBattleCard = document.getElementById("cpuBattleCard");
+        cpuBattleCard.src = "img/back.png";
+      }, 2000);
       break;
     case "引き分け":
-      alert("引き分け");
+      drawPop = document.getElementById("drawPop");
+      drawPop.style.display = 'flex';
+      
+      // 1秒後に実行
+      setTimeout(function() {
+        drawPop.style.display = 'none';
+        playBattleCard = document.getElementById("playBattleCard");
+        playBattleCard.src = "img/back.png";
+        cpuBattleCard = document.getElementById("cpuBattleCard");
+        cpuBattleCard.src = "img/back.png";
+      }, 2000);
       break;
     default :
       alert("エラー");
       break;
   }
-    
+  
 }
 
 
