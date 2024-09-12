@@ -12,7 +12,7 @@ let win = 0;
 let cnt = 0;
 
 //お題
-let result = 0;
+let result = "";
 
 window.onload = async function() {
   const cardDiv = document.getElementById("card");
@@ -327,6 +327,7 @@ function checkResult(playValue, cpuValue) {
   if(result == "HIGH"){
     if(playValue > cpuValue){
       outCome("勝利");
+      win++;
     }else if(playValue < cpuValue){
       outCome("敗北");
     }else{
@@ -335,6 +336,7 @@ function checkResult(playValue, cpuValue) {
   }else{
     if(playValue < cpuValue){
       outCome("勝利");
+      win++;
     }else if(playValue > cpuValue){
       outCome("敗北");
     }else{
@@ -342,6 +344,18 @@ function checkResult(playValue, cpuValue) {
     }
   }
   random();
+  cnt++;
+  alert("回数は" + cnt + "回で、勝利回数は" + win);
+
+  if(cnt == 10){
+    reset = document.getElementById("reset");
+      reset.style.display = 'flex';
+      // 1秒後に実行
+      setTimeout(function() {
+        reset.style.display = 'none';
+      }, 1000);
+      document.getElementById("reset").innerHTML = win; 
+  }
 }
 
 // リセットボタン
